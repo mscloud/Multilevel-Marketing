@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/portalTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+       Members
+    </ui:define>
+
+    <ui:define name="body">
+             <ul> 
+            <li><a href="welcome.xhtml">Home</a></li>
+        </ul>
+
+        <h2>All Members:</h2>
+        <h:dataTable value="#{membersService.findAll()}" var="member">
+            <h:column>
+                <f:facet name="header"><h:outputText value="ID"/></f:facet>
+                <h:outputText value="#{member.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="First Name"/></f:facet>
+                <h:outputText value="#{member.firstName}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Last Name"/></f:facet>
+                <h:outputText value="#{member.lastName}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Email"/></f:facet>
+                <h:outputText value="#{member.email}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Referance Code"/></f:facet>
+                <h:outputText value="#{member.referance_code}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Customers"/></f:facet>
+                <h:outputText value="#{member.customer.size()}" converter="javax.faces.Integer"/>
+            </h:column>
+    
+        </h:dataTable>
+
+    </ui:define>
+
+</ui:composition>

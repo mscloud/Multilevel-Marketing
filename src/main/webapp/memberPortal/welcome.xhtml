@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+                xmlns ="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/portalTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+         Member Portal Welcome Page
+    </ui:define>
+
+    <ui:define name="body">
+               <h2>Products:</h2>
+         <ul>
+              <li><a href="memberPortal/welcome.xhtml">Home</a></li>
+             <li><a href="memberPortal/myAccount.xhtml">My Account</a></li>
+             <li><a href="memberPortal/Tree.xhtml">Marketing Tree</a></li>
+         </ul>
+        
+        <h:dataTable value="#{productsBean.product}" var="product">
+            <h:column>
+                <f:facet name="header"><h:outputText value="ID"/></f:facet>
+                <h:outputText value="#{product.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Name"/></f:facet>
+                <h:outputText value="#{product.product_name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Product Availibility"/></f:facet>
+                <h:outputText value="#{product.product_availibility}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Product Type"/></f:facet>
+                <h:outputText value="#{product.product_type}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Product weight"/></f:facet>
+                <h:outputText value="#{product.product_weight}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Price"/></f:facet>
+                <h:outputText value="#{product.product_price}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Company"/></f:facet>
+                <h:outputText value="#{product.company.name}"/>
+            </h:column>
+            <h:column>
+                <h:form><h:commandLink action="#{productsBean.doUpdate(product)}" value="Buy Now"/></h:form>
+            </h:column>
+        </h:dataTable>
+
+    </ui:define>
+
+</ui:composition>

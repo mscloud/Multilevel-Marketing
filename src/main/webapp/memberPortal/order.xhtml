@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/portalTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="title">
+        Order Summery
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form>
+        <div class="row">
+                <div class="large-12 columns">
+                    <h:outputLabel for="name" value="Credit Card Number" />
+                    <h:inputText p:placeholder="Credit card Number" id="name" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <h:outputLabel for="proavail" value="CVV Number" />
+                    <h:inputText p:placeholder="CVV" id="proavail" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <h:outputLabel for="protype" value="Name on Card" />
+                    <h:inputText p:placeholder="Name On Card" id="protype" />
+                </div>
+            </div>
+        </h:form>
+        <h:form>
+            <div class="row">
+                <div class="large-12 columns">
+                    <h:commandButton action="#{productsBean.goToOut()}" class="button expand" value="Checkout"/>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

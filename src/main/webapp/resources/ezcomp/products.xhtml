@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="products" type="edu.iit.sat.itmd4515.jsharma3.fp.MLM.Products" required="true" />
+        <cc:attribute name="readonly" type="java.lang.Boolean" required="false" default="true" />
+        <cc:attribute name="action" required="false" method-signature="java.lang.String action()"/>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:dataTable value="#{cc.attrs.products}" var="rs">
+        <h:column>
+            <f:facet name="header"><h:outputText value="ID"/></f:facet>
+            <h:outputText value="#{cc.attrs.products.id}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header"><h:outputText value="Name"/></f:facet>
+            <h:outputText value="#{cc.attrs.products.product_name}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header"><h:outputText value="Product Type"/></f:facet>
+            <h:outputText value="#{cc.attrs.products.product_type}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header"><h:outputText value="Product Weight"/></f:facet>
+            <h:outputText value="#{cc.attrs.products.product_weight}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header"><h:outputText value="Product Price"/></f:facet>
+            <h:outputText value="#{cc.attrs.products.product_price}"/>
+        </h:column>
+
+    </h:dataTable>
+    </cc:implementation>
+</html>
